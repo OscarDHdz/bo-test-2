@@ -10,6 +10,7 @@ pipeline {
 echo "M2_HOME = ${M2_HOME}"'''
           sh 'whoami'
           sh 'uname -a'
+          sh 'java -v'
         }
         
         echo 'Hola'
