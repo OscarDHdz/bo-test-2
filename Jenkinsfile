@@ -1,14 +1,20 @@
 pipeline {
   agent {
-    docker {
-      image 'maven:latest'
+    node {
+      label 'java8'
     }
     
   }
   stages {
-    stage('Build') {
+    stage('Initialize') {
       steps {
         git(url: 'ssh://jenkins@gerrit:29418/MDC/DEMO/demo-base-spring-petclinic', branch: 'master', credentialsId: 'adop-jenkins-master', poll: true)
+        node(label: 'java8') {
+          sh '''echo "PATH = ${PATH}"
+echo "M2_HOME = ${M2_HOME}"
+mvn clean install'''
+        }
+        
       }
     }
   }
