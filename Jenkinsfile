@@ -7,7 +7,9 @@ pipeline {
 echo $PROJECT_NAME'''
         git(url: 'ssh://jenkins@gerrit:29418/MDC/DEMO/demo-base-spring-petclinic', branch: 'master', credentialsId: 'adop-jenkins-master', poll: true)
         tool 'ADOP Maven'
-        cleanWs(cleanWhenAborted: true, cleanWhenFailure: true, cleanWhenSuccess: true, cleanWhenNotBuilt: true, cleanWhenUnstable: true, cleanupMatrixParent: true, deleteDirs: true)
+        sh '''clean
+install
+-DskipTests'''
       }
     }
   }
