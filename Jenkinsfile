@@ -5,7 +5,7 @@ pipeline {
       steps {
         git(url: 'ssh://jenkins@gerrit:29418/MDC/DEMO/demo-base-spring-petclinic', credentialsId: 'adop-jenkins-master', branch: 'master')
         node(label: 'java8') {
-          tool 'ADOP Maven'
+          tool(name: 'ADOP Maven', type: 'maven')
           sh '''echo "PATH = ${PATH}"
 echo "M2_HOME = ${M2_HOME}"'''
           sh 'java -version'
