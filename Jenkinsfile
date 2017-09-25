@@ -11,7 +11,7 @@ echo "M2_HOME = ${M2_HOME}"'''
           sh 'java -version'
           sh '''MAVEN_HOME=/opt/maven 
 PATH=$MAVEN_HOME/bin:$PATH'''
-          sh 'which maven'
+          sh 'locate maven'
         }
         
         echo 'Hola'
