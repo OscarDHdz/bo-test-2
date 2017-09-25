@@ -8,6 +8,8 @@ pipeline {
           tool 'ADOP Maven'
           sh '''echo "PATH = ${PATH}"
 echo "M2_HOME = ${M2_HOME}"'''
+          sh 'whoami'
+          sh 'ifconfig'
         }
         
         echo 'Hola'
